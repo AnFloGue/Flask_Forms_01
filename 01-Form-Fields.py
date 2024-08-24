@@ -34,6 +34,7 @@ def index():
 
     # Create instance of the form.
     form = InfoForm()
+
     # If the form is valid on submission (we'll talk about validation next)
     if form.validate_on_submit():
         # Grab the data from the breed on the form.
@@ -43,6 +44,11 @@ def index():
         session['mood'] = form.mood.data
         session['food'] = form.food_choice.data
         session['feedback'] = form.feedback.data
+        print(type(form.breed.data))
+        print(type(form.neutered.data))
+        print(type(form.mood.data))
+        print(type(form.food_choice.data))
+        print(type(form.feedback.data))
 
         return redirect(url_for("thankyou"))
 
