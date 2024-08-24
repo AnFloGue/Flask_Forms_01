@@ -8,8 +8,7 @@
 </p>
 
 <form method="POST">
-    {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
     {{ form.breed.label }} {{ form.breed(class='some-css-class') }}
-    {{ form.submit() }}
+    {{ form.submit() }} {# This is the POST request to the index route#}
 </form>
