@@ -1,8 +1,8 @@
-from flask import Flask, render_template, session, redirect, url_for, session
+from flask import Flask, render_template, session, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import (StringField, BooleanField, DateTimeField,
-                     RadioField,SelectField,TextField,
-                     TextAreaField,SubmitField)
+                     RadioField, SelectField, TextAreaField,
+                     SubmitField)
 from wtforms.validators import DataRequired
 
 
@@ -19,7 +19,7 @@ class InfoForm(FlaskForm):
     This general class gets a lot of form about puppies.
     Mainly a way to go through many of the WTForms Fields.
     '''
-    breed = StringField('What breed are you?',validators=[DataRequired()])
+    breed = StringField('What breed are you?', validators=[DataRequired()])
     neutered  = BooleanField("Have you been neutered?")
     mood = RadioField('Please choose your mood:', choices=[('mood_one','Happy'),('mood_two','Excited')])
     food_choice = SelectField(u'Pick Your Favorite Food:',
@@ -27,7 +27,6 @@ class InfoForm(FlaskForm):
                                    ('fish', 'Fish')])
     feedback = TextAreaField()
     submit = SubmitField('Submit')
-
 
 
 @app.route('/', methods=['GET', 'POST'])
